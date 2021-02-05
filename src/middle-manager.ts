@@ -15,6 +15,8 @@ import {
 import { WechatyManager }     from './wechaty-manager'
 import { AppserviceManager }  from './appservice-manager'
 import { Manager } from './manager'
+var bbobHTML: any = require('@bbob/html')
+var presetHTML5: any = require('@bbob/preset-html5')
 
 interface WechatyRoomData {
   consumerId?: string   // the matrix user id who is using the matrix-appservice-wechaty
@@ -476,6 +478,8 @@ export class MiddleManager extends Manager {
       from
     )
 
+    // Parse from bbob to html
+    const parsedText = bbobHTML(text, presetHTML5())
     let matrixRoom
     let matrixUser
 
@@ -494,7 +498,7 @@ export class MiddleManager extends Manager {
     }
 
     await this.appserviceManager.sendMessage(
-      text,
+      parsedText,
       matrixRoom,
       matrixUser,
     )

@@ -39,6 +39,9 @@
   },
   "homepage": "https://github.com/huan/matrix-appservice-wechaty#readme",
   "dependencies": {
+    "@bbob/core": "^2.6.2",
+    "@bbob/html": "^2.6.2",
+    "@bbob/preset-html5": "^2.6.2",
     "cuid": "^2.1.8",
     "matrix-appservice-bridge": "^2.2.0",
     "read-pkg-up": "^7.0.1",
